@@ -1,0 +1,99 @@
+;;================================
+
+;;================================
+
+[module/personalIcon]
+type = custom/text
+format = 󱓈 
+format-background = ${colors.alt-background}
+format-foreground = ${colors.text}
+format-padding = 1 
+
+[module/sp]
+type = custom/text
+format = " "
+format-background = ${colors.background}
+
+;; =================================
+
+[module/xworkspaces]
+type = internal/xworkspaces
+
+pin-workspaces = true
+inline-mode = false
+
+enable-click = true
+
+fuzzy-match = true
+
+ws-icon-0 = file; 
+ws-icon-1 = terminal;󰆍
+ws-icon-2 = code;  
+ws-icon-3 = browser; 
+ws-icon-4 = social; 
+ws-icon-5 = music; 
+
+;icon-0 = file; 
+;icon-1 = terminal;󰆍
+;icon-2 = code;  
+;icon-3 = browser; 
+;icon-4 = social; 
+;icon-5 = music; 
+;icon-default =   
+
+format = <label-state>
+format-background = ${colors.alt-background}
+format-font = 1
+
+label-monitor = %name%
+
+label-active = %name%
+label-active-foreground = ${colors.kepp}
+label-active-underline = ${colors.kepp}
+label-active-padding = 1
+
+label-occupied = %name%
+label-occupied-underline = ${colors.occuped}
+label-occupied-foreground = ${colors.occuped}
+label-occupied-padding = 1
+
+label-urgent = %name%
+label-urgent-foreground = ${colors.darkGrey}
+label-urgent-underline =  ${colors.dgrass}
+label-urgent-padding = 1
+
+label-empty = %name%
+label-empty-foreground = ${colors.white}
+label-empty-padding = 1
+
+label-separator = ""
+label-separator-padding=0
+label-separator-foreground= ${colors.alt-background}
+
+;;====================================
+
+[module/cpu]
+
+;; ===================================
+[network-base]
+type = internal/network
+interval = 5
+format-connected = <label-connected>
+format-disconnected = <label-disconnected>
+label-disconnected = %{F#F0C674}%ifname%%{F#707880} disconnected
+
+[module/eth]
+inherit = network-base
+interface-type = wired
+label-connected = %{F#FCB9C2}󰩠 %local_ip%%{F-}
+label-connected-background = ${colors.alt-background}
+
+[module/date]
+type = internal/date
+interval = 1
+date =%H:%M
+;date-alt = %Y-%m-%d %H:%M:%S
+label = 󱑂 %date%
+label-background = ${colors.alt-background}
+label-foreground = ${colors.text}
+;; =================================

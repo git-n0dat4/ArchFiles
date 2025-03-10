@@ -1,0 +1,57 @@
+#
+# wm independent hotkeys
+#
+
+# terminal emulator
+super + Return
+#	urxvt
+#super + y	
+	wezterm
+	#~/.config/wezterm/manage_wezterm.sh
+	#zsh
+
+# program launcher
+super + @space
+	dmenu_run
+
+# make sxhkd reload its configuration files:
+super + Escape
+	pkill -USR1 -x sxhkd
+
+#
+## bspwm hotkeys
+#
+
+# quit/restart bspwm
+ctrl + alt + {q,r}
+	bspc {quit,wm -r}
+
+# close and kill
+super + {_,shift + }q
+	bspc node -{c,k}
+
+#
+## preselect
+#
+
+#
+## Explorer
+#
+super + e
+	thunar
+
+#
+## move/resize
+#
+
+#
+## Programs
+#
+
+# Launch firefox
+super + f
+	firefox
+
+# Ranger
+super + d
+	ranger

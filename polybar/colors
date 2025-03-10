@@ -1,0 +1,25 @@
+;; ====================================
+;;
+;;
+;; ====================================
+
+[colors]
+
+background = #2A1E2E
+alt-background = #3F2C4A
+foreground = #F2D1E8
+text = #FCB9C2
+
+
+occuped = #F87D6B
+;underline = #F87D6B
+
+rosa = #FCB9C2
+naranja = #F87D6B
+darkGrey = #2B5959
+dgrass = #447066
+kepp = #48b59F
+white = #ffffff
+
+alert = #A54242
+disabled = #707880
