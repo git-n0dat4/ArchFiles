@@ -4,22 +4,27 @@
 ;; ====================================
 
 [colors]
+background = #1E1E2E  
+;; fondo
 
-background = #2A1E2E
-alt-background = #3F2C4A
-foreground = #F2D1E8
-text = #FCB9C2
+alt-background = #2C2C4A  
+;; un color más claro que el background con el mismo tono
 
+foreground = #D1D1E8  
+;; color de primer plano
 
-occuped = #F87D6B
-;underline = #F87D6B
+text = #C2B9FC  
+;; color del texto
 
-rosa = #FCB9C2
-naranja = #F87D6B
-darkGrey = #2B5959
-dgrass = #447066
-kepp = #48b59F
-white = #ffffff
+active = #C2B9FC 
 
-alert = #A54242
-disabled = #707880
+occuped = #8AA0FF
+;; #F87D6B occupied-underline - occupied-foreground
+
+darkGrey = #3D534E
+;; #59595F urgent-underline - urgent-foreground
+
+white = #FFFFFF  
+;; empty-foreground
+
+;;naranja = #F87D6B
