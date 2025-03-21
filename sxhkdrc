@@ -27,8 +27,8 @@ ctrl + alt + {q,r}
 	bspc {quit,wm -r}
 
 # close and kill
-super + {_,shift + }q
-	bspc node -{c,k}
+super + q
+	bspc node -k; killall zsh
 
 #
 ## preselect
