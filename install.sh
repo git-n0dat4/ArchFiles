@@ -67,10 +67,12 @@ cp .zshrc ~/.zshrc
 
 #echo "Configurando Neofetch..."
 mkdir ~/Pictures/neofetch
+mkdir ~/.config/neofetch
 cp ./neofetch/neof.png ~/Pictures/neofetch/
 cp ./neofetch/config.conf ~/.config/neofetch/
 
 # echo "Configurando Kitty..."
+mkdir ~/.config/kitty
 cp ./kitty/kitty.conf ~/.config/kitty/
 
 echo "Script completado exitosamente."
