@@ -1,24 +1,38 @@
 #!/bin/bash
 
-# Verificar permisos
-if [[ $EUID -ne 0 ]]; then
-    echo "Por favor, ejecuta este script como administrador (sudo)." >&2
-    exit 1
-fi
-
 # Actualizar el sistema
 echo "Actualizando el sistema..."
 sudo pacman -Syu --noconfirm
 
 # Instalar aplicaciones y herramientas
 echo "Instalando aplicaciones generales..."
-sudo pacman -S bspwm sxhkd kitty picom zsh feh thunar ranger mlocate imagemagick powerlevel10k neofetch polybar plymouth unzip --noconfirm
+sudo pacman -S bspwm sxhkd kitty picom zsh feh thunar ranger mlocate imagemagick neofetch polybar plymouth unzip xorg-xrandr --noconfirm
+chsh -s $(which zsh)
+
+#Oh my Zsh
+echo "Instando Oh my Zsh"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+# Powerlevel10k
+echo "powerlevel10k"
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k
+
+# Agregando Yay
+echo "Instalando yay"
+git clone https://aur.archlinux.org/yay.git
+location=$(pwd)
+sudo chown -R test $location
+cd yay
+makepkg -si
+#sudo chown -R root $location
+cd ..
 
 # Icons y Font
-echo "Extrayendo Gohu.zip"
-unzip Gohu.zip -d ~/.fonts/
+echo "Copiando Gohu"
+sudo cp -r Gohu /usr/share/fonts/
+
 echo "Extrayendo Iconos"
-unzip NerdFontsSymbolsOnly.zip -d ~/.fonts/
+sudo cp -r Symbols/* /usr/share/fonts/
 
 # Actualizar fuentes
 echo "Actualizando la caché de fuentes..."
@@ -26,54 +40,37 @@ fc-cache -fv
 echo "Fuentes instaladas correctamente."
 
 # Crear carpetas y copiar archivos
-echo "Configurando bspwm y sxhkd..."
-mkdir -p ~/.config/bspwm ~/.config/sxhkd
+
+#echo "Configurando bspwm y sxhkd..."
+mkdir ~/.config/bspwm
 cp ./bspwm/bspwmrc ~/.config/bspwm/
+mkdir ~/.config/sxhkd
 cp ./sxhkd/sxhkdrc ~/.config/sxhkd/
 
-echo "Configurando Polybar..."
-mkdir -p ~/.config/polybar
+#echo "Configurando Polybar..."
+mkdir ~/.config/polybar
 cp ./polybar/* ~/.config/polybar/
 
-echo "Configurando Plymouth..."
+#echo "Configurando Plymouth..."
 sudo cp -r theme_arch /usr/share/plymouth/themes/
 sudo plymouth-set-default-theme -R theme_arch
 
-echo "Configurando fondo..."
-mkdir -p ~/Pictures/wallpaper
+#echo "Configurando fondo..."
+mkdir ~/Pictures/wallpaper
 cp ./wallpaper/wallp.jpg ~/Pictures/wallpaper/
 
-echo "Reemplazando configuraciones..."
+p10k configure
+
+#echo "Reemplazando configuraciones..."
 cp .xprofile ~/.xprofile
 cp .zshrc ~/.zshrc
 
-echo "Configurando Neofetch..."
-mkdir -p ~/Pictures/neofetch
+#echo "Configurando Neofetch..."
+mkdir ~/Pictures/neofetch
 cp ./neofetch/neof.png ~/Pictures/neofetch/
 cp ./neofetch/config.conf ~/.config/neofetch/
 
-echo "Configurando Kitty..."
+# echo "Configurando Kitty..."
 cp ./kitty/kitty.conf ~/.config/kitty/
 
-# Instalación opcional
-while true; do
-    read -p "¿Deseas instalar lxappearance, lxsession y arc-gtk-theme? (s/n): " instalar_temas
-    case $instalar_temas in
-        [sS]*) 
-            echo "Instalando herramientas de apariencia..."
-            sudo pacman -S lxappearance lxsession arc-gtk-theme --noconfirm
-            break
-            ;;
-        [nN]*) 
-            echo "Saltando la instalación de herramientas de apariencia."
-            break
-            ;;
-        *) 
-            echo "Por favor, responde con 's' o 'n'."
-            ;;
-    esac
-done
-
 echo "Script completado exitosamente."
-
-
