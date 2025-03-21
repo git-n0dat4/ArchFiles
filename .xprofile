@@ -1,13 +1,9 @@
-# Monitor 
-xrandr --output Virtual1 --mode 1920x1080
+# Monitor
+xrandr --output 'Virtual1' --mode 1920x1080
 
 # Fondo
-feh --bg-scale $HOME/Images/Wallpaper/bocch.png
+feh --bg-scale ~/Pictures/wallpaper/wallp.jpg
 
 # Session
 lxsession &
-
-
-#sxhkd &
-#~/.config/polybar/launch.sh &
-#exec bspwm
+picom &
