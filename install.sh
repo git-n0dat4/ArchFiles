@@ -18,14 +18,14 @@ echo "powerlevel10k"
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k
 
 # Agregando Yay
-echo "Instalando yay"
-git clone https://aur.archlinux.org/yay.git
+#echo "Instalando yay"
+#git clone https://aur.archlinux.org/yay.git
 #location=$(pwd)
 #sudo chown -R test $location
-cd yay
-makepkg -si
+#cd yay
+#makepkg -si
 #sudo chown -R root $location
-cd ..
+#cd ..
 
 # Icons y Font
 echo "Copiando Gohu"
@@ -52,18 +52,16 @@ mkdir ~/.config/polybar
 cp ./polybar/* ~/.config/polybar/
 
 #echo "Configurando Plymouth..."
-sudo cp -r theme_arch /usr/share/plymouth/themes/
-sudo plymouth-set-default-theme -R theme_arch
+#sudo cp -r theme_arch /usr/share/plymouth/themes/
+#sudo plymouth-set-default-theme -R theme_arch
 
 #echo "Configurando fondo..."
 mkdir ~/Pictures/wallpaper
 cp ./wallpaper/wallp.jpg ~/Pictures/wallpaper/
 
-p10k configure
-
 #echo "Reemplazando configuraciones..."
-cp .xprofile ~/.xprofile
-cp .zshrc ~/.zshrc
+#cp .xprofile ~/.xprofile
+#cp .zshrc ~/.zshrc
 
 #echo "Configurando Neofetch..."
 mkdir ~/Pictures/neofetch
@@ -72,7 +70,7 @@ cp ./neofetch/neof.png ~/Pictures/neofetch/
 cp ./neofetch/config.conf ~/.config/neofetch/
 
 # echo "Configurando Kitty..."
-mkdir ~/.config/kitty
-cp ./kitty/* ~/.config/kitty/
+#mkdir ~/.config/kitty
+#cp ./kitty/* ~/.config/kitty/
 
 echo "Script completado exitosamente."
