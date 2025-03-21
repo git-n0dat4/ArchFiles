@@ -1,5 +1,5 @@
 # Monitor
-xrandr --output 'Virtual1' --mode 1920x1080
+xrandr --output 'Virtual-1' --mode 1920x1080
 
 # Fondo
 feh --bg-scale ~/Pictures/wallpaper/wallp.jpg
