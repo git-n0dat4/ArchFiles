@@ -6,7 +6,7 @@ sudo pacman -Syu --noconfirm
 
 # Instalar aplicaciones y herramientas
 echo "Instalando aplicaciones generales..."
-sudo pacman -S bspwm sxhkd kitty picom zsh feh thunar ranger mlocate imagemagick neofetch polybar plymouth unzip xorg-xrandr --noconfirm
+sudo pacman -S bspwm sxhkd kitty picom zsh feh thunar ranger mlocate imagemagick neofetch polybar plymouth unzip xorg-xrandr xorg-xsetroot --noconfirm
 chsh -s $(which zsh)
 
 #Oh my Zsh
@@ -20,8 +20,8 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~
 # Agregando Yay
 echo "Instalando yay"
 git clone https://aur.archlinux.org/yay.git
-location=$(pwd)
-sudo chown -R test $location
+#location=$(pwd)
+#sudo chown -R test $location
 cd yay
 makepkg -si
 #sudo chown -R root $location
@@ -73,6 +73,6 @@ cp ./neofetch/config.conf ~/.config/neofetch/
 
 # echo "Configurando Kitty..."
 mkdir ~/.config/kitty
-cp ./kitty/kitty.conf ~/.config/kitty/
+cp ./kitty/* ~/.config/kitty/
 
 echo "Script completado exitosamente."
