@@ -19,3 +19,4 @@ bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 
 ~/.config/polybar/launch.sh &
+xsetroot -cursor_name left_ptr &
