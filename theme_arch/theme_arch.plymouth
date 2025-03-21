@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=theme_arch
+Description=animation
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/theme_arch/images/
+ScriptFile=/usr/share/plymouth/themes/theme_arch/theme_arch.script

@@ -1,0 +1,31 @@
+# Screen
+screen.w = Window.GetWidth(0);
+screen.h = Window.GetHeight(0);
+screen.half.w = screen.w / 2;
+screen.half.h = screen.h / 2;
+
+# Flujo
+state.status = "play";
+state.time = 0.0;
+
+# Ciclo
+for(i=0; i <= 61; i++)
+{
+	flyingman_image[i] = Image("frame_"+(i+1)+".png");
+}
+
+flyingman_sprite = Sprite();
+
+# Centrar
+flyingman_sprite.SetX(screen.half.w - flyingman_image[0].GetWidth() / 2);
+flyingman_sprite.SetY(screen.half.h - flyingman_image[0].GetHeight() / 2);
+
+progress = 0;
+
+fun refresh_callback() {
+	flyingman_sprite.SetImage(flyingman_image[Math.Int(progress / 2) % 61]);
+	progress++;
+	if(progress >= 122) { progress = 0 }
+}
+
+Plymouth.SetRefreshFunction(refresh_callback);
