@@ -4,11 +4,7 @@
 
 # terminal emulator
 super + Return
-#	urxvt
-#super + y	
-	wezterm
-	#~/.config/wezterm/manage_wezterm.sh
-	#zsh
+	kitty 
 
 # program launcher
 super + @space
