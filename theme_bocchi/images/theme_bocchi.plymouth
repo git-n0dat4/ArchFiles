@@ -1,8 +1,0 @@
-[Plymouth Theme]
-Name=theme_bocchi
-Description=animation
-ModuleName=script
-
-[script]
-ImageDir=/usr/share/plymouth/themes/theme_bocchi/images/
-ScriptFile=/usr/share/plymouth/themes/theme_bocchi/theme_bocchi.script
