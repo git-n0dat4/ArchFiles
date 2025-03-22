@@ -93,10 +93,8 @@ cp ./neofetch/config.conf ~/.config/neofetch/
 
 ### File customs
 ```
-mkdir ~/Pictures/neofetch
-mkdir ~/.config/neofetch
-cp ./neofetch/neof.png ~/Pictures/neofetch/
-cp ./neofetch/config.conf ~/.config/neofetch/
+cp .xprofile ~/.xprofile
+cp .zshrc ~/.zshrc
 ```
 
 ### Reboot
