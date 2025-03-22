@@ -10,13 +10,11 @@ sudo pacman -Syu
 ### Instalar paquetes
 ```
 sudo pacman -S bspwm sxhkd kitty picom zsh feh thunar ranger mlocate imagemagick neofetch polybar unzip xorg-xrandr xorg-xsetroot
-
 ```
 
 ### Configure yay
 ```
 git clone https://aur.archlinux.org/yay.git
-
 ```
 
 ### Oh my Zsh
@@ -24,21 +22,19 @@ git clone https://aur.archlinux.org/yay.git
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 > cd yay
 > makepkg -si
-
 ```
 
 ### Powerlevel10k
 ```
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k
-
 ```
 
 ### Icons y Font
 ```
 sudo cp -r Gohu /usr/share/fonts/
 sudo cp -r Symbols/* /usr/share/fonts/
-
 ```
+
 > #### Update Fonts
 > ```
 >  fc-cache -fv
@@ -50,7 +46,6 @@ mkdir ~/.config/bspwm
 cp ./bspwm/bspwmrc ~/.config/bspwm/
 mkdir ~/.config/sxhkd
 cp ./sxhkd/sxhkdrc ~/.config/sxhkd/
-
 ```
 
 ### Config Polybar
