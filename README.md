@@ -76,6 +76,11 @@ GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet splash "
 ```
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 ```
+> Select theme
+```
+sudo cp -r theme_arch /usr/share/plymouth/themes
+sudo plymouth-set-default-theme -R theme_arch
+```
 
 ### Config Wallpaper
 ```
