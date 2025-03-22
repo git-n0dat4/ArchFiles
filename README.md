@@ -69,6 +69,7 @@ sudo mkinitcpio -P
 ```
 > Config Grub
 ```
+sudo nano /etc/default/grub
 GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet splash "
 ```
 > Update Grub
