@@ -107,8 +107,17 @@ cp .zshrc ~/.zshrc
 reboot
 ```
 
-#### L
+#### Notes
 > kitty : 
 >```
 > cp ./kitty/* ~/.config/kitty/
+> ~/.config/kitty/kitty.conf
+> font_family GohuFont Nerd Font Mono
+> font_size 13.5
+> background_opacity 0.8
 >```
+> Picom
+> ```
+> sudo nano /etc/xdg/picom.conf
+> quitar shadow fadding corner
+> ```
