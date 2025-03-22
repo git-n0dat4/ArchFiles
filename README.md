@@ -15,13 +15,14 @@ sudo pacman -S bspwm sxhkd kitty picom zsh feh thunar ranger mlocate imagemagick
 ### Configure yay
 ```
 git clone https://aur.archlinux.org/yay.git
+> cd yay
+> makepkg -si
 ```
 
 ### Oh my Zsh
 ```
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-> cd yay
-> makepkg -si
+chsh -s $(which zsh)
 ```
 
 ### Powerlevel10k
