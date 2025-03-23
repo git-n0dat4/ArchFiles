@@ -82,6 +82,11 @@ sudo cp -r theme_arch /usr/share/plymouth/themes
 sudo plymouth-set-default-theme -R theme_arch
 ```
 
+### Login de keyitdev sddm-astronaut-theme
+```
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/keyitdev/sddm-astronaut-theme/master/setup.sh)"
+```
+
 ### Config Wallpaper
 ```
 mkdir ~/Pictures/wallpaper
