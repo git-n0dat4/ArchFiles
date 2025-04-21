@@ -2,7 +2,7 @@
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 
-bspc monitor -d  '' '󰆍' '' '' '' ''
+bspc monitor -d  '' '󰲠' '󰲢' '󰲤' '󰲦' '󰲨'
 #bspc monitor -d file terminal code browser social music
 
 bspc config border_width         2
@@ -18,5 +18,9 @@ bspc rule -a mplayer2 state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 
-~/.config/polybar/launch.sh &
+#~/.config/polybar/launch.sh &
 xsetroot -cursor_name left_ptr &
+
+eww open launcher
+$HOME/.config/eww/spotify/spotify.sh &
+$HOME/.config/eww/xworkspaces/xprofile &

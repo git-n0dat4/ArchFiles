@@ -1,53 +1,90 @@
-#
-# wm independent hotkeys
-#
+#=======================================
+#    _____  ____ ____ _____  ___  _____
+#   / __/ |/_/ // / //_/ _ \/ _ \/ ___/
+#  _\ \_>  </ _  / ,< / // / , _/ /__  
+# /___/_/|_/_//_/_/|_/____/_/|_|\___/  
+#=======================================                                     
 
-# terminal emulator
+# Terminal
 super + Return
 	kitty 
 
-# program launcher
-super + @space
-	dmenu_run
-
-# make sxhkd reload its configuration files:
-super + Escape
-	pkill -USR1 -x sxhkd
-
-#
-## bspwm hotkeys
-#
+#=======================================
+#    ___  _______ _      ____  ___
+#   / _ )/ __/ _ \ | /| / /  |/  /
+#  / _  |\ \/ ___/ |/ |/ / /|_/ / 
+# /____/___/_/   |__/|__/_/  /_/  
+#=======================================
+                                
+# close and kill
+super + q
+	bspc node -k; killall zsh
 
 # quit/restart bspwm
 ctrl + alt + {q,r}
 	bspc {quit,wm -r}
 
-# close and kill
-super + q
-	bspc node -k; killall zsh
+#=======================================
+#=======================================
 
-#
-## preselect
-#
+#=======================================
+#    _  ___      ______  ___  __ _________  ___  _________
+#   | |/_/ | /| / / __ \/ _ \/ //_/ __/ _ \/ _ |/ ___/ __/
+#  _>  < | |/ |/ / /_/ / , _/ ,< _\ \/ ___/ __ / /__/ _/  
+# /_/|_| |__/|__/\____/_/|_/_/|_/___/_/  /_/ |_\___/___/  
+#=======================================
+                                                        
+# Switch workspace
+super + shift +  {Left,Right}
+	bspc desktop -f {prev.local,next.local}
 
-#
-## Explorer
-#
+# Switch workspace or Send focused Node to another workspace
+super + {_,shift + }{1-5}
+	bspc {desktop -f,node -d} '^{2-6}' '--follow'
+#=======================================
+#=======================================
+
+#=======================================
+#    ___          ____    __        __ 
+#   / _ \_______ / __/__ / /__ ____/ /_
+#  / ___/ __/ -_)\ \/ -_) / -_) __/ __/
+# /_/  /_/  \__/___/\__/_/\__/\__/\__/ 
+#=======================================
+                                  
+# Preselect the direction
+ctrl + shift + {Left,Down,Up,Right}
+	bspc node -p {west,south,north,east}
+
+# Preselect the ratio
+ctrl + shift  + {1-9}
+	bspc node -o 0.{1-9}
+
+# Cancel the preselection for the focused node
+ctrl + shift + space
+	bspc node -p cancel
+#=======================================
+#=======================================
+
+#=======================================
+#    ___   ___  ___  ____
+#   / _ | / _ \/ _ \/ __/
+#  / __ |/ ___/ ___/\ \  
+# /_/ |_/_/  /_/  /___/  
+#=======================================
+
+# ShortCuts
+super + h
+ eww open sxhkd
+                      
+# Thunar
 super + e
 	thunar
-
-#
-## move/resize
-#
-
-#
-## Programs
-#
-
-# Launch firefox
+# Firefox
 super + f
 	firefox
 
-# Ranger
-super + d
-	ranger
+# Spotify
+super + m
+	spotify-launcher
+#=======================================
+#=======================================
