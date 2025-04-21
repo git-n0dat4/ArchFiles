@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# Se suscribe a los eventos de bspwm (por ejemplo, a los cambios de escritorio)
+bspc subscribe report | while read -r event; do
+    # Obtén el nombre del escritorio (workspace) activo
+    active_workspace=$(bspc query -D -d focused --names)
+
+    # Compara el nombre actual contra el que deseas
+    if [ "$active_workspace" = "" ]; then
+        eww open profile
+        eww open sxhkd
+    else
+        eww close profile
+        eww close sxhkd
+    fi
+done

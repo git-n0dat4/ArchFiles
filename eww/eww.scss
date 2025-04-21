@@ -1,0 +1,134 @@
+@import "./style/colors.scss";
+
+.box{
+	background-color: $background;
+}
+
+.button{
+	background: $background;
+	border-color: $text;
+	color: $text;
+  	font-family: "GohuFont Nerd Font Mono";
+    	font-size: 1.8rem;	
+}
+
+.box3{
+	color: $text;
+	padding: 0px 5px;
+	.box3-icon{
+		font-family: "Nerd Font Mono";
+		font-size: 1.5rem;
+		}
+	.box3-icon2{
+		font-family: "Nerd Font Mono";
+		font-size: 1rem;
+		}
+	.box3-label{
+    		font-size: 1.45rem;
+		font-weight: bolder;
+		}
+	.box3-iSpotify{
+		font-family: "Nerd Font Mono";
+		font-size: 2.5rem;
+		}
+	
+}
+
+.box-widget
+{
+	background: $background;
+	border: 2px solid $text;
+	padding: 5px;
+	.boxW-event{
+		font-family: "Nerd Font Mono"; 
+		font-size: 28px;
+	}
+	.butW-label{
+		color: $text;
+		background: $background;
+  		font-family: "GohuFont 11 Nerd Font Mono";
+    		font-size: 1.3rem;
+	}
+}
+
+.session{
+    	background: $background;
+	color: $primary;
+	font-family: "Nerd Font Mono"; 
+    	font-size: 1.8rem;
+}
+
+.card{
+	color: $text;
+  	font-family: "GohuFont 14 Nerd Font Mono";
+    	font-size: 2rem;
+	border: 5px solid $text;
+	padding: 10px;
+	.label-car {
+		font-size: 2rem;
+		color: $text;
+	}
+}
+
+.weather{
+	background: $background;
+	border: 5px solid $text;
+	border-radius: 8px;
+	padding: 10px
+}
+
+.weather_icon{
+    	color: $text;
+	font-family: "Nerd Font Mono";
+	font-size: 15rem;
+}
+
+.weather-label{
+  	font-family: "GohuFont 11 Nerd Font Mono";
+	font-size: 1.4rem;
+	color: $text;
+}
+
+
+.sxhkd{
+	background: $background;
+	color: $text;
+  	font-family: "GohuFont 14 Nerd Font Mono";
+    	font-size: 1.3rem;
+	border: 5px solid $text;
+	padding: 10px;
+}
+
+.volbar slider {
+    	background: none; 
+    	border: none;
+    	box-shadow: none;
+    	min-width: 0;
+    	min-height: 0;
+}
+
+.volbar trough {
+    	background-color: $background;
+    	border-radius: 60px;
+    	min-height: 15px;
+    	min-width: 5px;
+}
+
+.volbar highlight {
+	border: none;
+	background: linear-gradient(180deg, $secondary 30%, $primary 50%, $background 100%);
+	border-radius: 60px;
+}
+
+
+.my-progress trough {
+	background-color: $text;
+    	border: none;
+    	border-radius: 10px;
+    	min-height: 8px; 
+    	min-width: 150px; 
+}
+
+.my-progress highlight {
+    border-radius: 10px;
+}
