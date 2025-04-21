@@ -8,6 +8,9 @@
 # Terminal
 super + Return
 	kitty 
+# Term + neo
+super + shift + Return
+	kitty -e bash -c 'neofetch; read -n 1 -rsp ""' 
 
 #=======================================
 #    ___  _______ _      ____  ___

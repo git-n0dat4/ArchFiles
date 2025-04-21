@@ -1,9 +1,10 @@
 # Monitor
-xrandr --output 'Virtual-1' --mode 1920x1080
+xrandr --output 'Virtual1' --mode 1366x768
 
 # Fondo
-feh --bg-scale ~/Pictures/wallpaper/wallp.jpg
-
+#feh --bg-scale ~/Pictures/wallpaper/wallp.jpg
+feh --bg-scale ~/Pictures/wallpaper/yomuyakadashi.png
 # Session
 lxsession &
-picom &
+
+picom & 
