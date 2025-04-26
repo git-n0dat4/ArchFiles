@@ -33,6 +33,7 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~
 ### Icons y Font
 ```
 sudo cp -r Gohu /usr/share/fonts/
+sudo cp -r Hack /usr/share/fonts/
 sudo cp -r Symbols/* /usr/share/fonts/
 ```
 
@@ -90,14 +91,14 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/keyitdev/sddm-astronaut-th
 ### Config Wallpaper
 ```
 mkdir ~/Pictures/wallpaper
-cp ./wallpaper/wallp.jpg ~/Pictures/wallpaper/
+cp ./wallpaper/yomuyakadashi.png ~/Pictures/wallpaper/
 ```
 
 ### Config Neofetch
 ```
 mkdir ~/Pictures/neofetch
 mkdir ~/.config/neofetch
-cp ./neofetch/neof.png ~/Pictures/neofetch/
+cp ./neofetch/neof2.png ~/Pictures/neofetch/
 cp ./neofetch/config.conf ~/.config/neofetch/
 ```
 
@@ -113,16 +114,3 @@ reboot
 ```
 
 #### Notes
-> kitty : 
->```
-> cp ./kitty/* ~/.config/kitty/
-> ~/.config/kitty/kitty.conf
-> font_family GohuFont Nerd Font Mono
-> font_size 13.5
-> background_opacity 0.8
->```
-> Picom
-> ```
-> sudo nano /etc/xdg/picom.conf
-> quitar shadow fadding corner
-> ```

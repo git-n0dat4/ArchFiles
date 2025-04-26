@@ -1,37 +1,29 @@
 @import "./style/colors.scss";
 
-.box{
-	background-color: $background;
+.box {
+	background: $background;
 }
 
-.button{
-	background: $background;
-	border-color: $text;
-	color: $text;
-  	font-family: "GohuFont Nerd Font Mono";
-    	font-size: 1.8rem;	
+.transparent {
+	background: #161616;
+	color :$background;
+	font-family: "Nerd Font Mono"; 
+    	font-size: 1.65rem;
 }
+
 
 .box3{
 	color: $text;
 	padding: 0px 5px;
 	.box3-icon{
-		font-family: "Nerd Font Mono";
-		font-size: 1.5rem;
-		}
-	.box3-icon2{
-		font-family: "Nerd Font Mono";
-		font-size: 1rem;
+		font-family: "Symbols Nerd Font Mono";
+		font-size: 1.2rem;
 		}
 	.box3-label{
+		font-family: "Hack Nerd Font Mono", monospace;
     		font-size: 1.25rem;
 		font-weight: bolder;
-		}
-	.box3-iSpotify{
-		font-family: "Nerd Font Mono";
-		font-size: 2.5rem;
-		}
-	
+		}	
 }
 
 .box-widget
@@ -40,60 +32,50 @@
 	border: 2px solid $text;
 	padding: 5px;
 	.boxW-event{
-		font-family: "Nerd Font Mono"; 
-		font-size: 28px;
+		font-family: "Symbols Nerd Font Mono"; 
+		font-size: 22px;
 	}
 	.butW-label{
 		color: $text;
 		background: $background;
-  		font-family: "GohuFont 11 Nerd Font Mono";
+		font-family: "GohuFont 11 Nerd Font";
     		font-size: 1.3rem;
 	}
 }
 
+.button-session{
+	background: $background;
+	font-family: "Symbols Nerd Font Mono"; 
+    	font-size: 1.6rem;
+	color: $primary;	
+}
+
 .session{
-    	background: $background;
+	font-family: "Symbols Nerd Font Mono"; 
+    	font-size: 1.6rem;
+	color: $primary;	
+}
+
+.label-session{
+	min-width: 10px; 
 	color: $primary;
-	font-family: "Nerd Font Mono"; 
-    	font-size: 1.8rem;
+	font-size: 1.15rem;
+	font-weight: bolder;
 }
 
 .card{
+	background: $background;
 	color: $text;
-  	font-family: "GohuFont 14 Nerd Font Mono";
+	font-family: "GohuFont 11 Nerd Font Mono";
     	font-size: 2rem;
 	border: 5px solid $text;
 	padding: 10px;
-	.label-car {
-		font-size: 2rem;
-		color: $text;
-	}
 }
-
-.weather{
-	background: $background;
-	border: 5px solid $text;
-	border-radius: 8px;
-	padding: 10px
-}
-
-.weather_icon{
-    	color: $text;
-	font-family: "Nerd Font Mono";
-	font-size: 15rem;
-}
-
-.weather-label{
-  	font-family: "GohuFont 11 Nerd Font Mono";
-	font-size: 1.4rem;
-	color: $text;
-}
-
 
 .sxhkd{
 	background: $background;
 	color: $text;
-  	font-family: "GohuFont 14 Nerd Font Mono";
+	font-family: "Hack Nerd Font Mono", monospace;
     	font-size: 1.3rem;
 	border: 5px solid $text;
 	padding: 10px;
@@ -119,7 +101,6 @@
 	background: linear-gradient(180deg, $secondary 30%, $primary 50%, $background 100%);
 	border-radius: 60px;
 }
-
 
 .my-progress trough {
 	background-color: $text;

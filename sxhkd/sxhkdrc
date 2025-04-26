@@ -9,8 +9,8 @@
 super + Return
 	kitty 
 # Term + neo
-super + shift + Return
-	kitty -e bash -c 'neofetch; read -n 1 -rsp ""' 
+#super + shift + Return
+#	kitty -e bash -c 'neofetch; read -n 1 -rsp ""'
 
 #=======================================
 #    ___  _______ _      ____  ___
@@ -26,6 +26,10 @@ super + q
 # quit/restart bspwm
 ctrl + alt + {q,r}
 	bspc {quit,wm -r}
+
+# toggle floating / tiled
+super + shift + space
+    bspc node -t \~floating
 
 #=======================================
 #=======================================
@@ -44,6 +48,7 @@ super + shift +  {Left,Right}
 # Switch workspace or Send focused Node to another workspace
 super + {_,shift + }{1-5}
 	bspc {desktop -f,node -d} '^{2-6}' '--follow'
+
 #=======================================
 #=======================================
 

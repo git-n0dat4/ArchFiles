@@ -8,31 +8,13 @@
 
 (defwindow launcher
 	:monitor 0
-	:geometry (geometry :x "0px" :y "5px" :width "100%"  :anchor "top center")
-	:stacking "fg"
-	:reserve (struts :distance "35px" :side "top")
-	:wm-ignore false
+	:geometry (geometry :x "0px" :y "5px" :width "243px"  :anchor "top left")
+	:reserve (struts :distance "30px" :side "top")
+	:windowtype "dock"
 	(box 	:class "box"
 		:orientation "h"
-		:space-evenly false
-		:spacing 190
 		(launcher-menu)
-		(box 
-			:orientation "h"
-			:space-evenly false
-			:halign "center"
-			(clock)
-		)
-		(box 	
-			:orientation "h"
-			:space-evenly false
-			:halign "end"
-			(manager)
-			(buttonArch)
-		)
-		
-	)
-		
+	)		
 )
 ;; ==================================================
 
@@ -40,36 +22,13 @@
 	(box
 		:orientation "h"
 		:space-evenly false
-		(profile)
+		(label 	:class "transparent"
+			:text "")
 		(workspc)
-		(apps))
-)
-
-;; ==================================================
-
-(defwidget profile []
-	(button
-		:class "session"
-		:tooltip "Profile"
-		:onclick "bspc desktop -f " ""
+		(label 	:class "transparent"
+			:text "")
 	)
 )
-
-;; ==================================================
-
-(defwidget buttonArch[]
-	(box
-		:space-evenly false
-		(button :class "session"
-                	:onclick "eww open system"
-                	"󰣇")
-	)
-)
-
-;; ==================================================
-;; ==================================================
-;; ==================================================
-
 
 ;; ==================================================
 ;       _      __         __                            
@@ -89,33 +48,103 @@
 	(box 	:orientation "h"
 		:space-evenly false
 		:spacing 15
-		(label :text "")
+		(eventbox
+			:class "session"
+			:tooltip "Profile"
+			:onclick "bspc desktop -f " ""
+		)
+			
 	    	(eventbox 
-			:class "button"
+			:class "session"
 			:tooltip "Escritorio 1"   	          
-			:style "color: ${color1}; background: #2e3440"   	          
+			:style "color: ${color1}; background: #2e3440"
 			     	:onclick "bspc desktop -f 󰲠" "󰲠")
 	     	(eventbox 
-			:class "button"
+			:class "session"
 			:tooltip "Escritorio 2"
 			:style "color: ${color2}; background: #2e3440"   	          
                     		:onclick "bspc desktop -f 󰲢" "󰲢")
                 (eventbox 
-			:class "button"
+			:class "session"
                       	:tooltip "Escritorio 3"   	          
 			:style "color: ${color3}; background: #2e3440"   	          
 				:onclick "bspc desktop -f 󰲤" "󰲤")
                 (eventbox 
-			:class "button"
+			:class "session"
                       	:tooltip "Escritorio 4"   	          
 			:style "color: ${color4}; background: #2e3440"   	          
 				:onclick "bspc desktop -f 󰲦" "󰲦")
                 (eventbox 
-			:class "button"
+			:class "session"
                       	:tooltip "Escritorio 5"   	          
 			:style "color: ${color5}; background: #2e3440"   	          
 				:onclick "bspc desktop -f 󰲨" "󰲨")
-		(label :text "")
+	)
+)
+
+;; ==================================================
+;; ==================================================
+;; ==================================================
+
+
+;; ==================================================
+;   _______         __  
+;  / ___/ /__  ____/ /__
+; / /__/ / _ \/ __/  '_/
+; \___/_/\___/\__/_/\_\ 
+;; ==================================================
+
+(defwindow clock
+	:monitor 0
+	:geometry (geometry :x "0px" :y "5px" :width "123px"  :anchor "top center")
+	:windowtype "dock"
+	(box	:class "box"
+		:orientation "h"
+		:space-evenly false
+
+		(label 	:class "transparent"
+			:text "")
+
+		(box 	:space-evenly false
+			:spacing 10
+			:class "box3"
+			(label 	:class "box3-icon" 
+				:text "󱑂")
+			(label 	:class "box3-label" 
+				:yalign "0.6"
+				:text "${formattime(EWW_TIME, "%H")}:${formattime(EWW_TIME, "%M")}")
+
+		)		
+	
+		(label 	:class "transparent"
+			:text "")
+	)		
+)
+
+;; ==================================================
+;; ==================================================
+
+;; ==================================================
+(defwindow sys
+	:monitor 0
+	:geometry (geometry :x "605px" :y "5px" :width "152px"  :anchor "top center")
+	:windowtype "dock"
+	(box 	:class "box"
+		:orientation "h"
+		(launcher-sys)
+	)		
+)
+
+;; ==================================================
+
+(defwidget launcher-sys []
+	(box	:orientation "h"
+		:space-evenly false
+		(label 	:class "transparent"
+			:text "")
+		(apps)
+		(label 	:class "transparent"
+			:text "")
 	)
 )
 ;; ==================================================
@@ -127,64 +156,38 @@
 ;; /_/ |_/ .__/ .__/___/
 ;;      /_/  /_/        
 ;; ==================================================
+(defpoll v_icon :interval "1s"  "./volumen/volumen.sh --get_icon")
 
 (defwidget apps[]
 	(box 	:orientation "h"
-		:space-evenly true
-
-	   	(button :class "button"
-                       	:onclick "thunar &"
-                       	:tooltip "File Manager"
-                       	"󰝰")
-	     	
-                (button :class "button"
-                       	:onclick ""
-                       	:tooltip "Code"
-                       	"")
-              	
-	    	(button :class "button"
-                       	:onclick ""
-                       	:tooltip "Whatsapp"
-                       	"")
-              	
-	    	(button :class "button"
-                       	:onclick ""
-                       	:tooltip "Spotify"
-                       	"")
-
-		(button :class "button"
-			:onclick ""	
-			:tooltip "Bluetooth"
-			"")		
-
-		(button :class "button"
-			:onclick ""
-			:tooltip "Red"
-			"󰾔")		
-))
-
-;; ==================================================
-
-
-;; ==================================================
-;   _______         __  
-;  / ___/ /__  ____/ /__
-; / /__/ / _ \/ __/  '_/
-; \___/_/\___/\__/_/\_\ 
-;; ==================================================
-
-(defwidget clock[]
-	(box 	:space-evenly false
+		:space-evenly false
 		:spacing 10
-		:halign "center"
-		:class "box3"
-		(label 	:class "box3-icon" 
-			:text "󱑂")
-		(label 	:class "box3-label" 
-			:yalign "0.4" 
-			:text "${formattime(EWW_TIME, "%H")}:${formattime(EWW_TIME, "%M")}")
+		(eventbox 	:class "session"
+				:onclick ""	
+				:tooltip "Bluetooth"
+				"󰂯")		
+
+		(eventbox 	:class "session"
+				:onclick ""
+				:tooltip "Red"
+				"󰖩")
+		(eventbox	
+			:onclick "eww open volumen"
+			:tooltip "Volumen"
+			(label :class "session" :text v_icon)
+		)
+		(eventbox
+			:class "session"
+			:tooltip "Session"
+			:onclick "eww open session" "󰣇"
+		)		
 	)
 )
+
+;; ==================================================
+;; ==================================================
+;; ==================================================
+
 
 ;; ==================================================
 ;    ___        __  ___                           
@@ -194,38 +197,27 @@
 ;; ==================================================
 
 (defpoll IP :interval "120m" "./ip/ip.sh --ip" )
-(defpoll v_icon :interval "1s"  "./volumen/volumen.sh --get_icon")
 (defpoll g_vol :interval "1s"  "./volumen/volumen.sh --get_vol")
 (defpoll ram :interval "1s" "./cpu/system.sh --ram" )
+(defpoll cpu :interval "1s" "./cpu/cpu.sh --cpu" )
 
-(defwidget manager[]
+(defwindow system
+	:geometry (geometry :x "11px" :y "0px" :width "315px" :anchor "bottom right")
+	:windowtype "dock"
+	:reserve (struts :distance "25px" :side "bottom")
 	(box 	:space-evenly true
-		:orientation "h"
-			(box    :class "box3"
-				:space-evenly false
-				:spacing 15
-				(box 	:space-evenly false
-					:spacing 3
-				(label 	:class "box3-icon"		
-					:text "󰩠")
-				(label 	:class "box3-label"
-					:yalign "0.45" 
-					:text IP)		
-				) 
-				(label :class "box3-label" :text "󰍛   ${ram}%")
-				(label :class "box3-label" :text "󰇅  ${EWW_CPU.cores[0].usage}%")
-				
-				(box 	:space-evenly false
-					:spacing 5
-				
-				(eventbox	
-					:onclick "./volumen/volumen.sh --toggle-mute"
-					(label :class "box3-icon" :text v_icon)
-				)
-
-				(eventbox 
-					:class "box3-label" :onclick "eww open volumen"  "${g_vol}%")
-				)
+		:class "box"
+		:hexpand true
+			(box    :space-evenly false
+				:spacing 10
+				:orientation "h"	
+				(label 	:class "transparent"
+					:text "")
+				(label 	:class "label-session" :text "󰩠  ${IP}") 
+				(label 	:class "label-session" :text "󰍛  ${ram}%")
+				(label	:class "label-session" :text "󰇅 ${cpu}")
+				(label 	:class "transparent"
+				:text "")
 			)
 	)	
 )
@@ -247,8 +239,8 @@
 		:space-evenly true
 			(box :orientation "h" :space-evenly false
 				(eventbox 
-				:onclick "eww close volumen"
-				:class "box3-icon" :style "color: #d8dee9" "")
+				:onclick "./volumen/volumen.sh --toggle-mute"
+				:class "session" v_icon)
 				(box :space-evenly true :hexpand true
 				(scale :class "volbar"
 				:value g_vol
@@ -259,7 +251,7 @@
 				)
 				(eventbox 
 				:onclick "eww close volumen"
-				:class "box3-icon" :style "color: #d8dee9" "") 
+				:class "label-session" "${g_vol}%") 
 			)
 	)
 )
@@ -274,33 +266,36 @@
 ;;     /___/                   
 ;; ==================================================
 
-(defwindow system
-	:geometry (geometry :x "-15px" :y "50px" :width "145px"  :anchor "top right")
+(defwindow session
+	:geometry (geometry :x "-15px" :y "50px" :width "154px"  :anchor "top right")
 	:windowtype "desktop"
 	:wm-ignore true
 	(box	:class "box-widget"
 		:orientation "v"
 		:space-evenly false
-		:spacing 5
+		:spacing 15
 			(eventbox	:class "boxW-event"
 					:halign "end"
-					:valign "start"
 					:style "color: #d8dee9"
-					:onclick "eww close system"
-					"󰬟"
+					:onclick "eww close session"
+					""
 			)
 			(box 	
-				:orientation "v"
+				:orientation "h"
 				:space-evenly false
 				:spacing 5
 				:halign "end"
-					(button :class "butW-label"
-						:onclick "reboot"
-						"Restart 󰜉")
+					(button :class "button-session"
+						:onclick "kill -9 -1"
+						"")
 
-					(button :class "butW-label"
+					(button :class "button-session"
+						:onclick "reboot"
+						"󰜉")
+
+					(button :class "button-session"
 						:onclick "shutdown now"
-						"Shut down 󰐥" )
+						"󰐥" )
 						
 			)
 	)
@@ -315,21 +310,13 @@
 ;; ==================================================
 
 (defwindow profile
-	:geometry (geometry :x "-150px" :y "0px":anchor "center")
+	:geometry (geometry :x "-530px" :y "0px":anchor "center")
 	:windowtype "desktop"
-	:wm-ignore true
-	(box :orientation "h" :space-evenly false :class "box"
+	:wm-ignore false
+	(box :orientation "v" :space-evenly false
 			(myprofile)
-		(box :orientation "v" :space-evenly false
-			(weather)
-
-			(box :orientation "h" :space-evenly false
-				(stats)
-				(spotify)
-			)
-		)
-
-	)	
+			(stats)		
+	)
 )
 
 (defwidget myprofile []
@@ -350,59 +337,13 @@
 				:path "./profile.png")			
 
 			(label :class "label-car"  :text " devOps\\n󱓇 n0dat4")			
-
 			)
 		)
+
 	)
+
 )
 ;; ==================================================
-
-;; ==================================================
-;          __            __         
-;  _    __/ /  ___ ___ _/ /____ ____
-; | |/|/ / _ \/ -_) _ `/ __/ -_) __/
-; |__,__/_//_/\__/\_,_/\__/\__/_/   
-;; ==================================================                                  
-
-(defpoll w_loc :interval "60m" "./weather/weather.sh --location" )
-(defpoll w_det :interval "60m" "./weather/weather.sh --detail" )
-(defpoll w_c :interval "60m" "./weather/weather.sh --C" )
-(defpoll w_wind :interval "60m" "./weather/weather.sh --wind" )
-(defpoll w_message :interval "60m" "./weather/weather.sh --message" )
-(defpoll w_icon :interval "60m" "./weather/weather.sh --icon" )
-
-
-(defwidget weather[] 
-	(box	:class "weather"
-		:orientation "v"
-		:space-evenly false
-		(label :class "weather-label" :text w_loc)
-
-			(box 	:orientation "h" 
-				:space-evenly true
-					(box 	:orientation "h" 
-						:space-evenly false 
-							(label :class "weather_icon" :text w_icon) 
-					) 
-
-					(box 	:orientation "v" 
-						:space-evenly false 
-						:valign "center" 
-						:halign "center" 
-							(label :class "weather-label" :text w_det) 
-							(label :text "\\n") 
-							(label :class "weather-label" :text w_c) 
-							(label :text "\\n") 
-							(label :class "weather-label" :text w_wind) 
-					) 
-			)
-
-		(label :class "weather-label" :text w_message)
-	)
-)
-
-;; ==================================================
-
 
 ;; ==================================================
 ;        __            __           __    
@@ -412,9 +353,9 @@
 ;; ==================================================
 
 (defwindow sxhkd
-	:geometry (geometry :x "440px" :y "0px":width "400px" :height "350px" :anchor "center")
+	:geometry (geometry :x "480px" :y "-30px":width "400px" :height "350px" :anchor "center")
 	:windowtype "desktop"	
-	:wm-ignore true
+	:wm-ignore false
 	(sxhkdrc)
 )
 
@@ -434,7 +375,7 @@
 3.  Firefox: 
      Super + F
 4.  Vscode:
- 
+
 5.  Spotify: 
      Super + M
 6.  Restart bspm: 
@@ -489,49 +430,3 @@
 	)
 )
 ;; ==================================================
-
-
-;; ==================================================
-;;    ____          __  _ ___    
-;;   / __/__  ___  / /_(_) _/_ __
-;;  _\ \/ _ \/ _ \/ __/ / _/ // /
-;; /___/ .__/\___/\__/_/_/ \_, / 
-;;    /_/                 /___/  
-;; ==================================================
-
-(deflisten Sdata :initial "[Sin Datos, Sin Datos]" 'tail -F ./spotify/spotify_metadata.tmp')
-(defvar spotify-art "./spotify/port.png")
-
-(defwidget spotify[]
-	(box	:class "weather"
-		:orientation "h"
-		:width "250"
-		:space-evenly false :hexpand true
-
-			(box 	:class "weather"
-				:orientation "v"  
-				:class "box3" 
-				:space-evenly false 
-				:valign "center"
-				:spacing 25
-				:halign "end"
-					(label :class "box3-label" :text "${Sdata[0]}")
-					(label :class "box3-label" :text "${Sdata[1]}")		
-				
-				(box 
-					:class "box3"
-					:orientation "h" 
-					:space-evenly false 
-					:halign "center"				
-					(label :class "box3-iSpotify" :text " \\t") 		
-					(label :class "box3-iSpotify" :text "󰐎 \\t") 		
-					(label :class "box3-iSpotify" :text "") 		
-			)
-	)
-
-	)
-	
-)
-;; ==================================================
-
-
